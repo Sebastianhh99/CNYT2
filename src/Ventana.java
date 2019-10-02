@@ -17,7 +17,7 @@ public class Ventana extends JFrame{
     DefaultCategoryDataset dataset = new DefaultCategoryDataset();
     public Ventana(){
         setTitle("Grafico");
-        setSize(800,600);
+        setSize(1200,900);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
@@ -39,7 +39,7 @@ public class Ventana extends JFrame{
         dataset.setValue(8, "Hombres", "Viernes");
         */// Creando el Grafico
         JFreeChart chart = ChartFactory.createBarChart
-        ("Participacion por Genero","Genero", "Dias", 
+        ("Grafica","Estado","Valor",
         dataset, PlotOrientation.VERTICAL, true,true, false); 
         CategoryPlot p = chart.getCategoryPlot();
         // Mostrar Grafico
