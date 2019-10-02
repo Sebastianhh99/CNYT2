@@ -55,6 +55,14 @@ public class Ventana extends JFrame{
     	init();
     }
     
+    public void setData2(ComplexVector v) {
+    	ComplexNumber[] ve=v.getVector();
+    	for(int i=0;i<ve.length;i++) {
+    		dataset.setValue(Math.pow(ve[i].module(),2), Integer.toString(i), Integer.toString(i));
+    	}
+    	init();
+    }
+    
     public static void main(String args[]){
         new Ventana().setVisible(true);
     }

@@ -54,7 +54,6 @@ public class SystemCuan {
 				}
 			}
 		}
-		m.printr();
 		for(int i=0;i<2;i++) {
 			try {
 				init=m.product(init);
@@ -62,7 +61,7 @@ public class SystemCuan {
 				JOptionPane.showMessageDialog(null, e.getMessage());
 			}
 		}
-		return v;
+		return init;
 	}
 	
 	public static void main(String args[]) {
@@ -86,6 +85,7 @@ public class SystemCuan {
 				,new ComplexNumber(2,0),new ComplexNumber(11,0),new ComplexNumber(0,0),new ComplexNumber(3,0),new ComplexNumber(1,0),new ComplexNumber(0,0)
 				,new ComplexNumber(5,0),new ComplexNumber(2,0)};
 		ComplexVector F1V=new ComplexVector(F1arr);
+		//Para hacer el dinamico toca aca y hacer setData
 		//v=dinamicTime(F1,F1V,25);
 		ComplexMatriz F21=new ComplexMatriz(4,4);
 		ComplexMatriz F22=new ComplexMatriz(3,3);
@@ -116,6 +116,7 @@ public class SystemCuan {
 		ComplexVector F21V=new ComplexVector(F21arr);
 		ComplexNumber[] F22arr= {new ComplexNumber(0.7,0),new ComplexNumber(0.15,0),new ComplexNumber(0.15,0)};
 		ComplexVector F22V=new ComplexVector(F22arr);
+		//Para hacer el assembled system toca aca y hacer setData
 		//v=assembledSystems(F21,F22,F21V,F22V,5);
 		double r=1/Math.sqrt(22);
 		ComplexNumber[] F3arr= {new ComplexNumber(r,r),new ComplexNumber(-r,-r),new ComplexNumber(-r,r),new ComplexNumber(-r,-r),
@@ -123,10 +124,11 @@ public class SystemCuan {
 				new ComplexNumber(-r,-r),new ComplexNumber(-r,-r),
 				new ComplexNumber(r,-r),new ComplexNumber(r,-r),new ComplexNumber(-r,r)};
 		ComplexVector F3=new ComplexVector(F3arr);
-		v=slits(2,5,F3);
-		//v.printr();
+		//Para hacer la doble rendija toca aca y poner setData2
+		//v=slits(2,5,F3);
 		Ventana a=new Ventana();
 		a.setData(v);
+		//a.setData2(v);
 		a.setVisible(true);
 	}
 }
