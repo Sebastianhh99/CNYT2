@@ -36,7 +36,7 @@ public class SystemCuan {
 		init.fill(new ComplexNumber(0,0));
 		init.asigna(0, new ComplexNumber(1,0));
 		for(int i=1;i<=nRendijas;i++) {
-			m.asigna(i, 0, new ComplexNumber(1,0));
+			m.asigna(i, 0, new ComplexNumber(Math.sqrt(1/Double.parseDouble(Integer.toString(nRendijas))),0));
 		}
 		int in=0;
 		for(int n=1;n<=nRendijas;n++) {
@@ -54,7 +54,7 @@ public class SystemCuan {
 				}
 			}
 		}
-		//m.printr();
+		m.printr();
 		for(int i=0;i<2;i++) {
 			try {
 				init=m.product(init);
