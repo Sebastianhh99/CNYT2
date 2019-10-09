@@ -2,23 +2,79 @@
 
 >Sebastian Herrera Hernandez\
 >CNYT 2019-2 Grupo 2\
->Proyecto numeros complejos\
+>Proyecto Computacion cuantica\
+## Funcionalidades
 
-## Descripcion
+La librería soporta las siguientes operaciones entre números complejos:
 
-Este proyecto abarca el curso de CNYT en el que actualmente se tiene una libreria de operaciones entre numeros complejos
-operaciones entre vectores complejos y matrices complejas las cuales ya estan probadas y son funcionales en las diferentes clases 
-se encuentran las operaciones que se pueden realizar con su docuemntacion.
+### Calculadora de números complejos
 
-## Estructura
+*   Suma.
+*   Producto.
+*   Resta.
+*   División.
+*   Módulo.
+*   Conjugado.
+*   Conversión entre representaciones polar y cartesiano.
+*   Retornar la fase de un número complejo.
 
-Cada metodo que realice una operacion retorna el tipo de valor que debe hacer la operacion es decir si se hace una suma de numeros complejos
-el numero complejo al que se le hizo la suma no se modifica solo se retorna un numero complejo que es el resultado de la operacion a realizar
-esto mismo ocurre con las operaciones entre vectores y matrices.
+### Calculadora de matrices complejas
 
-En la clase test se encuntan las diferentes pruebas que se realizaron a las operaciones, en estas pruebas se pueden modificar los valores para 
-verificar con pruebas diferentes que los resultados son correctos en caso de ser necesario.
+*   Suma de vectores complejos.
+*   Inverso aditivo de vector complejo.
+*   Multiplicación de escalar por vector complejo.
+*   Suma de matrices complejas.
+*   Inverso aditivo de matriz compleja.
+*   Multiplicación de escalar por matriz compleja.
+*   Transpuesta de matriz compleja.
+*   Conjugada de matriz compleja.
+*   Adjunta (daga) de matriz compleja .
+*   Producto de matrices complejas.
+*   Acción de matriz compleja sobre vector complejo.
+*   Producto interno de vectores complejos.
+*   Norma de vector complejo.
+*   Distancia entre dos vectores complejos.
+*   ¿Es la matriz compleja una matriz unitaria?.
+*   ¿Es la matriz compleja una matriz hermitiana?.
+*   Producto tensorial de matrices complejas.
 
-Si se genera un error al momento de hacer las operacion como por ejemplo una division entre 0 o una multiplicacion que no se deberia poder efectuar
-la clase test ya tiene configurados los try catch necesarios para que se genere una ventana notificando que esta operacion no se puede realizar.
+### El sato de lo clásico a lo cuántico
 
+
+#### 1. Simulador de sistemas determinísticos, estocásticos y cuánticos; junto con su dinámica. Esta función es el método 
+
+* Recibe como parámetros:
+  * Tipo de sistema.
+  * Matriz M.
+  * Vector de estado inicial.
+  * N° de clicks de tiempo.
+
+* Retorna:
+  * Validez de la matriz, según el parámetro de la dinámica ingresada. (Dinámica clásica ó dinámica doblemente estocástica ó dinámica cuántica).
+  * Matriz M^t
+  * Vector de estado final.
+
+#### 2. Función que ensambla sistemas y sus dinámicas. Esta función es el método 
+
+* Recibe como parámetros:
+  * Matriz 1.
+  * Vector 1.
+  * Matriz 2.
+  * Vector 2.
+  * N° de clicks de tiempo.
+
+* Retorna:
+  * Vector de estado final.
+
+#### 3. Función que realiza la simulación del experimento de las rendijas. Esta función es el método ```calcularExperimentoDeRendijas(TipoSistema tipoDeSistema, int numeroDeRendijas, int numeroDeBlancosPared, MatrizCompleja vectorDeProbabilidad)``` que se encuentra en la clase ```Rendija.java```
+
+* Recibe como parámetros:
+  * Número de rendijas.
+  * Número de blancos por pared.
+  * Vector de probabilidades.
+  * Tipo de sistema al que corresponde el vector de probabilidades (clásico, estocástico o cuántico).
+
+* Retorna:
+  * Matriz asociada al sistema (al grafo).
+  * Matriz M^2
+  * Vector de estado final, y su resultado es mostrado gráficamente en un diagrama de barras 2D.

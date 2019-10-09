@@ -286,4 +286,14 @@ public class ComplexMatriz {
 			System.out.println("");
 		}
 	}
+	
+	public static void main(String[] args) {
+		ComplexMatriz a=new ComplexMatriz(2,2);
+		a.asigna(0, 0, new ComplexNumber(1/3.,0));
+		a.asigna(0, 1, new ComplexNumber(2/3.,0));
+		a.asigna(1, 0, new ComplexNumber(2/3.,0));
+		a.asigna(1, 1, new ComplexNumber(1/3.,0));
+		ComplexMatriz b=a.tensorProduct(a);
+		b.printr();
+	}
 }
