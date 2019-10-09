@@ -41,8 +41,7 @@ La librería soporta las siguientes operaciones entre números complejos:
 ### El sato de lo clásico a lo cuántico
 
 
-#### 1. Simulador de sistemas determinísticos, estocásticos y cuánticos; junto con su dinámica. Esta función es el método 
-
+#### 1. Simulador de sistemas determinísticos, estocásticos y cuánticos; junto con su dinámica. 
 * Recibe como parámetros:
   * Tipo de sistema.
   * Matriz M.
@@ -54,7 +53,7 @@ La librería soporta las siguientes operaciones entre números complejos:
   * Matriz M^t
   * Vector de estado final.
 
-#### 2. Función que ensambla sistemas y sus dinámicas. Esta función es el método 
+#### 2. Función que ensambla sistemas y sus dinámicas.
 
 * Recibe como parámetros:
   * Matriz 1.
@@ -66,7 +65,7 @@ La librería soporta las siguientes operaciones entre números complejos:
 * Retorna:
   * Vector de estado final.
 
-#### 3. Función que realiza la simulación del experimento de las rendijas. Esta función es el método ```calcularExperimentoDeRendijas(TipoSistema tipoDeSistema, int numeroDeRendijas, int numeroDeBlancosPared, MatrizCompleja vectorDeProbabilidad)``` que se encuentra en la clase ```Rendija.java```
+#### 3. Función que realiza la simulación del experimento de las rendijas. 
 
 * Recibe como parámetros:
   * Número de rendijas.
