@@ -2,7 +2,7 @@
 
 >Sebastian Herrera Hernandez\
 >CNYT 2019-2 Grupo 2\
->Proyecto Computacion cuantica\
+>Proyecto Computacion cuantica
 ## Funcionalidades
 
 La librería soporta las siguientes operaciones entre números complejos:
