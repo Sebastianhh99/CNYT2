@@ -64,7 +64,91 @@ public class SystemCuan {
 		return init;
 	}
 	
+	public double[] particulaEnUnaRecta(int n,ComplexVector init) {
+		ComplexNumber vector[]=init.getVector();
+		double[] ans=new double[vector.length];
+		for(int i=0;i<vector.length;i++) {
+			ans[i]=Math.pow(vector[i].module(), 2)/Math.pow(init.norm(), 2);
+		}
+		return ans;
+	}
+	
+	public ComplexNumber valorEsperado(ComplexMatriz omega,ComplexVector psi) {
+		ComplexNumber npsi=new ComplexNumber(1/psi.norm(),0);
+		ComplexVector psiNo=psi.escalarProduct(npsi);
+		try {
+			ComplexVector r=omega.product(psiNo);
+			return r.internalProducto(psiNo);
+		} catch (ComplexException e) {
+			JOptionPane.showMessageDialog(null, e.getMessage());
+		}
+		return new ComplexNumber(0,0);
+	}
+	
+	public ComplexNumber varianza(ComplexMatriz omega,ComplexVector psi) {
+		ComplexNumber npsi=new ComplexNumber(1/psi.norm(),0);
+		ComplexVector psiNo=psi.escalarProduct(npsi);
+		ComplexMatriz delta=delta(omega,psiNo);
+		try {
+			return valorEsperado(delta.product(delta),psi);
+		} catch (ComplexException e) {
+			JOptionPane.showMessageDialog(null, e.getMessage());
+		}
+		return null;
+	}
+	
+	private static ComplexMatriz delta(ComplexMatriz omega,ComplexVector psi) {
+		SystemCuan sys = new SystemCuan();
+		ComplexNumber a=sys.valorEsperado(omega,psi);
+		try {
+			return omega.plus(identidad(omega).escalarProduct(a).escalarProduct(new ComplexNumber(-1,0)));
+		} catch (ComplexException e) {
+			JOptionPane.showMessageDialog(null, e.getMessage());
+		}
+		return null;
+	}
+	
+	private static ComplexMatriz identidad(ComplexMatriz m) {
+		ComplexMatriz ans=new ComplexMatriz(m.getMatriz().length,m.getMatriz()[0].length);
+		ans.fill(new ComplexNumber(0,0));
+		for(int i=0;i<ans.getMatriz().length;i++) {
+			for(int j=0;j<ans.getMatriz()[0].length;i++) {
+				if(i==j) ans.asigna(i, j, new ComplexNumber(1,0));
+			}
+		}
+		return ans;
+	}
+	
+	public ComplexNumber[] calcularObservable(ComplexMatriz omega,ComplexVector psi) {
+		ComplexNumber[] ans= new ComplexNumber[2];
+		ans[0]=this.valorEsperado(omega, psi);
+		//ans[1]=this.varianza(omega,psi);
+		return ans;
+	}
+	
 	public static void main(String args[]) {
+		SystemCuan sys=new SystemCuan();
+		/*ComplexNumber[] aarr= {new ComplexNumber(2,-1),new ComplexNumber(-1.5,2.5),new ComplexNumber(-3.5,5),new ComplexNumber(-4,6),
+				new ComplexNumber(-3.5,2.5),new ComplexNumber(0,0),new ComplexNumber(-3.5,2.5),new ComplexNumber(6,-4),new ComplexNumber(0,2.5),
+				new ComplexNumber(-1,1)};
+		ComplexVector a=new ComplexVector(aarr);
+		double[] aans= sys.particulaEnUnaRecta(10,a);
+		for(int i=0;i<aans.length;i++) {
+			System.out.println(aans[i]);
+		}*/
+		ComplexNumber[][] omegarr= {{new ComplexNumber(0,0),new ComplexNumber(0,-1/2.),new ComplexNumber(0,-1),new ComplexNumber(-7/2.,0)},
+				{new ComplexNumber(0,1/2.),new ComplexNumber(0,0),new ComplexNumber(7/2.,0),new ComplexNumber(0,-1)},
+				{new ComplexNumber(0,1),new ComplexNumber(7/2.,0),new ComplexNumber(0,0),new ComplexNumber(0,-1/2.)},
+				{new ComplexNumber(-7/2.,0),new ComplexNumber(0,1),new ComplexNumber(0,1/2.),new ComplexNumber(0,0)}};
+		ComplexNumber[] psiarr= {new ComplexNumber(-2,1),new ComplexNumber(1,0),new ComplexNumber(0,-1),new ComplexNumber(3,2)};
+		ComplexMatriz omega=new ComplexMatriz(omegarr);
+		ComplexVector psi=new ComplexVector(psiarr);
+		ComplexNumber[] ans=sys.calcularObservable(omega, psi);
+		System.out.println(ans[0].getnumber());
+		//System.out.println(ans[1].getnumber());
+	}
+	
+	/*public static void main(String args[]) {
 		ComplexVector v=null;
 		ComplexMatriz F1=new ComplexMatriz(13,13);
 		F1.fill(new ComplexNumber(0,0));
@@ -130,5 +214,5 @@ public class SystemCuan {
 		a.setData(v);
 		//a.setData2(v);
 		a.setVisible(true);
-	}
+	}*/
 }
