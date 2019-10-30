@@ -3,7 +3,17 @@ import javax.swing.JOptionPane;
 public class SystemCuan {
 
 	public SystemCuan() {}
-	
+
+	//Recibe ket retora el angulo y la fase
+	public static  double[] anguloYFase(ComplexVector ket){
+		double r=Math.sqrt(3)/(2*Math.sqrt(2));
+		double i=1/Math.sqrt(2);
+		ComplexNumber a=new ComplexNumber(r,i);
+		//System.out.println(a.getPolar()[0]);
+		System.out.println(a.getPolar()[1]);
+		return null;
+	}
+
 	public static ComplexVector dinamicTime(ComplexMatriz m,ComplexVector v,int ticks) {
 		for(int i=0;i<ticks;i++) {
 			try {
