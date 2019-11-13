@@ -63,6 +63,16 @@ public class Ventana extends JFrame{
     	init();
     }
     
+    public void setData3(ComplexMatriz v) {
+    	ComplexNumber[][] ve= v.getMatriz();
+    	for(int i=0;i<ve.length;i++) {
+    		for(int j=0;j<ve[i].length;j++) {
+    			dataset.setValue(Math.pow(ve[i][j].module(), 2),Integer.toString(j),Integer.toString(j));
+    		}
+    	}
+    	init();
+    }
+    
     public static void main(String args[]){
         new Ventana().setVisible(true);
     }
